@@ -20,7 +20,13 @@ description: 用 Aseprite 从零绘制或补齐像素地图瓦片，或在不重
 | 从零制作，或用户明确要求补画 | 先确定目标格宽高、材质、接边和叠层；如果给了 TMX，先读回其实际 TSX、像素与地形规则，再按缺过渡、可接入的新材质、独立结构列出增补范围。按 [Aseprite 原创与增补](references/aseprite-authoring.md) 绘制、导出。 |
 | 只整理现成 PNG、TSX、TMX | 先核查格宽高、间距、边距、源格及样例用法。沿用现有像素和有效元数据；能用现成格补齐的规则可在任务范围内补齐，缺图则报告，不能用错材质或擅自重画。 |
 
+从零画或补画且可以运行 Aseprite Lua 时，优先复用 [网格与像素图层辅助库](references/aseprite-lua-helpers.md) 做坐标换算、按格读写、镜像取边和 1× 导出；不靠它决定地形像素或替代实刷。
+
 两条入口随后都按 [Tiled 素材整理与验收](references/tiled-organization.md) 处理。先确认目标网格、素材来源和允许写入的位置；不同尺寸和用途只在确有证据时合并。缺少 Aseprite 时可继续整理现有素材，不能把其他工具生成的平面 PNG 当成分层 Aseprite 原稿；缺少 Tiled 时明确报告哪些编辑器行为尚未验证。
+
+需要写入或检查 Wang 标注时，可复用 [Tiled Wang 规则辅助库](references/tiled-wang-helpers.md)：只对照已声明的组合、只更新明确指定的地形集和图块；不把静态签名覆盖当作界面验收。
+
+同时负责绘制和标注时，可参考 [雪地／岩地示例](examples/snow_and_rock/README.md)，用同一份「图块 ID → 具名触点」清单驱动两侧，避免布局改了但标注没跟上。
 
 ## 三种用途分别交付
 

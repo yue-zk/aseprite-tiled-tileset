@@ -35,6 +35,14 @@
 
 AI 的入口是 [SKILL.md](SKILL.md)，细节分为 [Aseprite 绘制与补画](references/aseprite-authoring.md) 和 [Tiled 整理与验收](references/tiled-organization.md)。
 
+## 给 AI 或脚本作者的辅助库
+
+可选的 [Aseprite Lua 辅助库](references/aseprite-lua-helpers.md) 提供通用网格坐标、指定图层与帧的像素读写、镜像取边和原尺寸导出。网格模块可独立在 Lua 5.3+ 中使用；像素模块需要 Aseprite，本机批处理验证使用 1.3-beta14-arm64。只想阅读技能或使用样例，不需要运行脚本。
+
+可选的 [Tiled Wang Python 辅助库](references/tiled-wang-helpers.md) 在角／边槽位与 `wangid` 之间转换，按声明的范围查缺项，并对已加载的 TSX 局部更新指定地形集。需要 Python 3.10+，无第三方包；静态检查不代替 Tiled 界面实刷。
+
+想看这两个库怎么配合？[24×16 雪地／岩地示例](examples/snow_and_rock/README.md)用同一份图块清单驱动 Aseprite 绘制与 Tiled 标注，也附可直接打开的分层原稿和地图。
+
 ## 授权
 
-仓库的文档和 AI 辅助制作的样例素材采用 [CC0 1.0](LICENSE)：可复制、修改、再分发及商用，不要求署名。Aseprite、Tiled 软件及其商标不在此授权范围内。
+仓库的文档、辅助脚本和 AI 辅助制作的样例素材采用 [CC0 1.0](LICENSE)：可复制、修改、再分发及商用，不要求署名。Aseprite、Tiled 软件及其商标不在此授权范围内。
